@@ -1,12 +1,13 @@
 package k.f.filler;
 
 import k.f.bottle.Bottle;
+import k.f.bottle.BottleInterface;
 
 public class ProxyFiller implements Filler {
 
 	Filler filler=null;
 	public ProxyFiller(String filler, int size) {
-	 switch (filler) {
+	 switch (filler.toLowerCase()) {
 	case "water":
 	case "woda":
 	this.filler=new WaterFiller(size);
@@ -20,7 +21,7 @@ public class ProxyFiller implements Filler {
 	}
 
 	@Override
-	public void fill(Bottle b) {
+	public void fill(BottleInterface b) {
 		if(filler!=null){
 			filler.fill(b);
 		}

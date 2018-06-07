@@ -1,6 +1,7 @@
 package k.f.filler;
 
 import k.f.bottle.Bottle;
+import k.f.bottle.BottleInterface;
 
 public class RedJuiceFiller extends BaseFiller implements Filler{
 
@@ -10,7 +11,7 @@ public class RedJuiceFiller extends BaseFiller implements Filler{
 	}
 
 	@Override
-	public void fill(Bottle b) {
+	public void fill(BottleInterface b) {
 	b.fill(type, size);
 		
 	}

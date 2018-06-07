@@ -7,7 +7,8 @@ import k.f.bottle.ReusableBottle;
 public class BottleFactory {
 	private static BottleFactory instance;
 	
-	public BottleFactory getInstance(){
+	private BottleFactory() {}
+	public static BottleFactory getInstance(){
 	if(instance==null){
 		synchronized (BottleFactory.class) {
 			if(instance==null){
@@ -32,5 +33,6 @@ public class BottleFactory {
 			
 		
 	}
+	
 	
 }

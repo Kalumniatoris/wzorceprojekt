@@ -7,7 +7,7 @@ import java.util.Map;
 
 import k.f.observers.ObserverD;
 
-public abstract class Bottle {
+public abstract class Bottle implements BottleInterface{
 	private int capacity;
 	private int amount;
 	private String type;
@@ -24,7 +24,7 @@ public abstract class Bottle {
 		this.setName(name);
 		System.out.println("Bottle created");
 	}
-	Bottle setType(String type) {
+	public Bottle setType(String type) {
 		this.type = type;
 		System.out.println("Type set");
 		
@@ -36,12 +36,14 @@ public abstract class Bottle {
 		return name;
 	}
 
-	public void setName(String name) {
+	public BottleInterface setName(String name) {
 		this.name = name;
+		return this;
 	}
-	public void printInfo(){
+	public BottleInterface printInfo(){
 	System.out.println(this.name+"  "+this.getAmount()+"/"+this.getCapacity()+"\n");
 	this.printContent();
+	return this;
 	}
 	public String printContent(){
 		String r="";
@@ -79,14 +81,16 @@ public abstract class Bottle {
 	public int getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+	public BottleInterface setAmount(int amount) {
 		this.amount = amount;
+		return this;
 	}
 	public int getCapacity() {
 		return capacity;
 	}
-	public void setCapacity(int capacity) {
+	public BottleInterface setCapacity(int capacity) {
 		this.capacity = capacity;
+		return this;
 	}
 	
 	
