@@ -1,6 +1,6 @@
 package k.f.observers;
 
-import k.f.bottle.Bottle;
+import k.f.bottle.BasicBottle;
 import k.f.dbuil.DrinkBuilder;
 
 public abstract class ObserverD {

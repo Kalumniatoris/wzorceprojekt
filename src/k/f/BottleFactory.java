@@ -1,11 +1,12 @@
 package k.f;
 
-import k.f.bottle.Bottle;
+import k.f.bottle.BasicBottle;
 import k.f.bottle.NormalBottle;
 import k.f.bottle.ReusableBottle;
 
 public class BottleFactory {
 	private static BottleFactory instance;
+	
 	
 	private BottleFactory() {}
 	public static BottleFactory getInstance(){
@@ -24,7 +25,7 @@ public class BottleFactory {
 	}
 	
 	
-	public Bottle createBottle(String name,int capacity, Boolean reusable,String type){
+	public BasicBottle createBottle(String name,int capacity, Boolean reusable,String type){
 		if(!reusable){
 			return new NormalBottle(capacity, name,type);
 		}else{

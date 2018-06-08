@@ -1,17 +1,17 @@
 package k.f.decorators;
 
+import k.f.bottle.BasicBottle;
 import k.f.bottle.Bottle;
-import k.f.bottle.BottleInterface;
 
 public class LabeledBottle extends Decorator{
 
-	public LabeledBottle(BottleInterface bottle) {
+	public LabeledBottle(Bottle bottle) {
 		super(bottle);
 		System.out.println("Labeled");
 		
 	}
 	@Override
-	public BottleInterface printInfo() {
+	public Bottle printInfo() {
 		super.printInfo();
 		System.out.println("LABELED");
 		return this;

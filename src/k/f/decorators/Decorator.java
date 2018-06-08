@@ -1,12 +1,14 @@
 package k.f.decorators;
 
+import java.util.Map;
+
+import k.f.bottle.BasicBottle;
 import k.f.bottle.Bottle;
-import k.f.bottle.BottleInterface;
 
-public abstract class Decorator implements BottleInterface{
-private BottleInterface bottle;
+public abstract class Decorator implements Bottle{
+private Bottle bottle;
 
-public Decorator(BottleInterface bottle2) {
+public Decorator(Bottle bottle2) {
 	this.bottle=bottle2;
 }
 
@@ -16,19 +18,19 @@ public String getName() {
 }
 
 @Override
-public BottleInterface setType(String type) {
+public Bottle setType(String type) {
 this.bottle.setType(type);
 return this;
 }
 
 @Override
-public BottleInterface setName(String name) {
+public Bottle setName(String name) {
 	this.bottle.setName(name);
 	return this;
 }
 
 @Override
-public BottleInterface printInfo() {
+public Bottle printInfo() {
 	this.bottle.printInfo();
 	// TODO Auto-generated method stub
 	return this;
@@ -41,7 +43,7 @@ public String printContent() {
 }
 
 @Override
-public BottleInterface fill(String type, int amount) {
+public Bottle fill(String type, int amount) {
 	// TODO Auto-generated method stub
 	this.bottle.fill(type, amount);
 	return this;
@@ -54,7 +56,7 @@ public int getAmount() {
 }
 
 @Override
-public BottleInterface setAmount(int amount) {
+public Bottle setAmount(int amount) {
 	this.bottle.setAmount(amount);
 	return this;
 }
@@ -66,10 +68,14 @@ public int getCapacity() {
 }
 
 @Override
-public BottleInterface setCapacity(int capacity) {
+public Bottle setCapacity(int capacity) {
 	// TODO Auto-generated method stub
 	this.bottle.setCapacity(capacity);
 	return this;
 }
 
+@Override
+public Map<String,Integer>getContent(){
+	return this.bottle.getContent();
+}
 }

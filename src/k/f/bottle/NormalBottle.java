@@ -2,7 +2,7 @@ package k.f.bottle;
 
 
 
-public class NormalBottle extends Bottle {
+public class NormalBottle extends BasicBottle {
 
 	public NormalBottle(int capacity, String name, String type) {
 		super(capacity,name);

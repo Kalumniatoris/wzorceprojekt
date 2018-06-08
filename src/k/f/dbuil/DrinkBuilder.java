@@ -1,18 +1,21 @@
 package k.f.dbuil;
 
+import java.net.NoRouteToHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import k.f.bottle.Bottle;
+import k.f.bottle.BasicBottle;
 import k.f.bottle.NormalBottle;
 import k.f.observers.ObserverD;
+import k.f.strategy.NormalStrategy;
+import k.f.strategy.Strategy;
 
 public class DrinkBuilder {
-	private Bottle b;
+	private BasicBottle b;
 	private int amount = 0;
-	
+	private Strategy strategy;
 	
 	private List<ObserverD> observers;
 	public void attach(ObserverD obs){
@@ -24,10 +27,18 @@ public class DrinkBuilder {
 	         observer.update();
 	      }
 	   } 	
-	public DrinkBuilder(int n) {
+	public DrinkBuilder() {
 		this.observers = new ArrayList<ObserverD>();
-		this.b = new NormalBottle(n,null, null);
+		this.strategy = new NormalStrategy();
+		this.b = new NormalBottle(strategy.getBottleSize(),null, null);
 	}
+	
+	public DrinkBuilder(Strategy s) {
+		this.observers = new ArrayList<ObserverD>();
+		this.strategy=s;
+		this.b = new NormalBottle(strategy.getBottleSize(),null, null);
+	}
+	
 	public DrinkBuilder setName(String name) {
 		this.b.setName(name);
 		return this;
@@ -55,11 +66,11 @@ public class DrinkBuilder {
 
 	private void add(String type, int n) {
 	
-		b.fill(type, n);
+		b.fill(type, strategy.fillSize(n));
 		notifyAllObservers();
 	}
 
-	public Bottle getBottle() {
+	public BasicBottle getBottle() {
 		// TODO Auto-generated method stub
 		return b;
 	}

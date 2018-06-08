@@ -1,10 +1,10 @@
 package k.f.filler;
 
+import k.f.bottle.BasicBottle;
 import k.f.bottle.Bottle;
-import k.f.bottle.BottleInterface;
 
 public interface Filler {
-public  void fill(BottleInterface b1);
+public  void fill(Bottle b1);
 
 
 }
